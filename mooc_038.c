@@ -6,12 +6,12 @@ int main()
 	int n;
 	int m;
 	int x;
-	int sum;
+	int sum = 0;
 	int a = 0;
 	
 	scanf("%d %d", &n, &m);
 	
-	for (x = 2; x <= 200; x++){
+	for (x = 2; a < m; x++){
 		int i;
 		int isPrime = 1;
 		
@@ -24,7 +24,7 @@ int main()
 		
 		if (isPrime == 1){
 			a += 1;
-			if (a <= m){
+			if (a >= n){
 				sum += x;
 			}
 		}
