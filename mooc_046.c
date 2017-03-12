@@ -10,35 +10,36 @@ int main()
 	int power;
 	int x;
 	int a;
+    int order = 0;
 	
-	//初始化数组（设置数组每个位置的值都为1）
+	//初始化数组的值都为0
 	for (i = 0; i <= number ; i++){
-		coefficient[i] = 1;
+		coefficient[i] = 0;
 	}
 	
+	//输入2个多项式，以输入2次0冥次为截止
 	do{
 		scanf("%d %d", &power, &x);
-		
-		coefficient[power] *= x;
-//		printf("%d\n", power);
-		
-	} while ( power != 0); 
+		coefficient[power] += x;
+		if (power == 0){
+			order+=1;
+		}
+	} while ( order != 2);
 	
-	for (a = 0; a <= number ; a++){
-		if (coefficient[a] != 1){
-			printf("%d*%d", coefficient[a], a);
+	//输出多项式计算的结果
+	for (a = number; a >= 0 ; a--){
+		if (coefficient[a] != 0){
+			if (a == 1){
+				printf("%dx+", coefficient[a]);
+			}else if (a == 0){
+				printf("%d", coefficient[a]);
+			}else{
+				printf("%dx%d+", coefficient[a], a);
+			}
 		} else {
 			continue;
 		}
 	}
-	
-//	{
-//		int i;
-//		for (i = 0; i <= number ; i++){
-//			printf("%d %d\n", i, coefficient[i]);
-//		}
-//	}
-//	
 	
 	return 0;
 }
